@@ -3,7 +3,11 @@ import java.util.Scanner;
 public class Menu {
     public static final String ANSI_RESET = "\u001B[0m";
     public static final String ANSI_CYAN = "\u001B[36m";
-    int count=1,counter=-1;
+    Scanner input = new Scanner(System.in);
+    Sign sign = new Sign();
+
+
+    int count=1;
     public void menuFunc(){
         while (count == 1) {
             System.out.println(ANSI_CYAN+"::::::::::::::::::::::::::::::::::::::::::::::::::::::::::" +
@@ -11,15 +15,13 @@ public class Menu {
                     "::::::::::::::::::::::::::::::::::::::::::::::::::::::::::\n" +
                     "......................MENU OPTIONS........................\n\n" +
                     "< 1 > Sign in \n< 2 > Sign up"+ANSI_RESET);
-            Scanner input = new Scanner(System.in);
+
             int number = input.nextInt();
-            Sign sign = new Sign();
             if (number == 2) {
-                counter++;
-                sign.signUp(counter);
+                sign.signUp();
             }
             if(number==1) {
-                int out = sign.signIn(counter);
+                int out = sign.signIn();
                 if (out == 0) {
                     count = 0;
                 }
