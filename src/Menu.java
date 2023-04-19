@@ -10,7 +10,7 @@ public class Menu {
     int count=1;
     public void menuFunc(){
         while (count == 1) {
-            System.out.println(ANSI_CYAN+"::::::::::::::::::::::::::::::::::::::::::::::::::::::::::" +
+            System.out.println(ANSI_CYAN+"\n::::::::::::::::::::::::::::::::::::::::::::::::::::::::::" +
                     "\n          WELCOME TO AIRLINE RESERVATION SYSTEM\n" +
                     "::::::::::::::::::::::::::::::::::::::::::::::::::::::::::\n" +
                     "......................MENU OPTIONS........................\n\n" +
@@ -25,6 +25,9 @@ public class Menu {
                 if (out == 0) {
                     count = 0;
                 }
+            }
+            else {
+                System.out.println("enter the correct number!");
             }
         }
     }

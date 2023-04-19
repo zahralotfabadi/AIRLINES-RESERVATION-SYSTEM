@@ -8,12 +8,13 @@ public class Sign {
     public static final String ANSI_PURPLE = "\u001B[35m";
     public static final String ANSI_YELLOW = "\u001B[33m";
     Scanner input = new Scanner(System.in);
+    Admin admin = new Admin();
     ArrayList<String> listUser = new ArrayList<>();
     ArrayList<String> listPassword = new ArrayList<>();
     public String user;
     public String password;
 
-    public ArrayList[] signUp() {
+    public void signUp() {
         System.out.println("enter user:");
         user = input.nextLine();
         listUser.add(user);
@@ -22,7 +23,6 @@ public class Sign {
         listPassword.add(password);
         System.out.println(listUser);
         System.out.println(listPassword);
-        return new ArrayList[]{(listUser),(listPassword)};
     }
 
 
@@ -34,14 +34,15 @@ public class Sign {
         System.out.println("enter password:");
         password = input.next();
         if (Objects.equals(user, AdminName) && Objects.equals(password, AdminPassword)) {
-            System.out.println(ANSI_PURPLE + ":::::::::::::::::::::::::::::::::::::::::::\n" +
-                    "            ADMIN MENU OPTIONS             \n" +
-                    ":::::::::::::::::::::::::::::::::::::::::::\n" +
-                    "...........................................\n\n" +
-                    "<1> Add\n<2> Update\n<3> Remove\n<4> Flight Schedules\n<0> Sign Out" + ANSI_RESET);
+//            int counter2 = 1;
+            while (true){
+                System.out.println(ANSI_PURPLE + "\n:::::::::::::::::::::::::::::::::::::::::::\n" +
+                        "            ADMIN MENU OPTIONS             \n" +
+                        ":::::::::::::::::::::::::::::::::::::::::::\n" +
+                        "...........................................\n\n" +
+                        "<1> Add\n<2> Update\n<3> Remove\n<4> Flight Schedules\n<0> Sign Out" + ANSI_RESET);
             int num1;
             num1 = input.nextInt();
-            Admin admin = new Admin();
             if (num1 == 1) {
                 admin.Add();
             } else if (num1 == 2) {
@@ -53,6 +54,10 @@ public class Sign {
             } else if (num1 == 0) {
                 return 1;
             }
+            else{
+                System.out.println("enter the correct number!");
+            }
+        }
         }
 
         int index1=listUser.indexOf(user);
@@ -60,7 +65,7 @@ public class Sign {
         if(index1>=0 && index2>=0) {
             int counter = 1;
             while (counter == 1) {
-                System.out.println(ANSI_YELLOW + ":::::::::::::::::::::::::::::::::::::::::::\n" +
+                System.out.println(ANSI_YELLOW + "\n:::::::::::::::::::::::::::::::::::::::::::\n" +
                         "            PASSENGER MENU OPTIONS             \n" +
                         ":::::::::::::::::::::::::::::::::::::::::::::::\n" +
                         "...............................................\n\n" +
@@ -85,6 +90,9 @@ public class Sign {
                     passengers.AddCharge();
                 } else if (num2 == 0) {
                     return 1;
+                }
+                else{
+                    System.out.println("enter the correct number!");
                 }
 
             }
