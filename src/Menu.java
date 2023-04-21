@@ -26,9 +26,9 @@ public class Menu {
                     count = 0;
                 }
             }
-            else {
-                System.out.println("enter the correct number!");
-            }
+//            else {
+//                System.out.println("enter the correct number!");
+//            }
         }
     }
     }

@@ -2,8 +2,6 @@ import java.util.ArrayList;
 
 public class Schedule {
     public ArrayList<Flight> flightArray = new ArrayList<>();
-//    public static Admin admin = new Admin();
-
     public String flightId1 = "WX-12", origin1 = "Yazd", destination1 = "Tehran", data1 = "1401-12-10", time1 = "12:30",
             flightId2 = "WZ-15", origin2 = "Mashhad", destination2 = "Ahvaz", data2 = "1401-12-11", time2 = "08:00",
             flightId3 = "BG-22", origin3 = "Shiraz", destination3 = "Tabriz", data3 = "1401-12-12", time3 = "22:30",
@@ -62,58 +60,176 @@ public class Schedule {
     Flight flight8 = new Flight(flightId8, origin8, destination8, data8, time8, price8, seats8);
     Flight flight9 = new Flight(flightId9, origin9, destination9, data9, time9, price9, seats9);
     Flight flight10 = new Flight(flightId10, origin10, destination10, data10, time10, price10, seats10);
-     Flight[] arrayFlights;
+    Flight[] arrayFlights;
 
+    public Flight getFlight1() {
+        return flight1;
+    }
+
+    public Flight getFlight2() {
+        return flight2;
+    }
+
+    public Flight getFlight3() {
+        return flight3;
+    }
+
+    public Flight getFlight4() {
+        return flight4;
+    }
+
+    public Flight getFlight5() {
+        return flight5;
+    }
+
+    public Flight getFlight6() {
+        return flight6;
+    }
+
+    public Flight getFlight7() {
+        return flight7;
+    }
+
+    public Flight getFlight8() {
+        return flight8;
+    }
+
+    public Flight getFlight9() {
+        return flight9;
+    }
+
+    public Flight getFlight10() {
+        return flight10;
+    }
 
 
     public ArrayList<Flight> flightArrayList() {
-        arrayFlights[0]=flight1;
-        arrayFlights[1]=flight2;
-        arrayFlights[2]=flight3;
-        arrayFlights[3]=flight4;
-        arrayFlights[4]=flight5;
-        arrayFlights[5]=flight6;
-        arrayFlights[6]=flight7;
-        arrayFlights[7]=flight8;
-        arrayFlights[8]=flight9;
-        arrayFlights[9]=flight10;
-        flightArray.add(0, flight1);
-        flightArray.add(1, flight2);
-        flightArray.add(2, flight3);
-        flightArray.add(3, flight4);
-        flightArray.add(4, flight5);
-        flightArray.add(5, flight6);
-        flightArray.add(6, flight7);
-        flightArray.add(7, flight8);
-        flightArray.add(8, flight9);
-        flightArray.add(9, flight10);
+        flightArray.add( flight1);
+        flightArray.add( flight2);
+        flightArray.add( flight3);
+        flightArray.add( flight4);
+        flightArray.add( flight5);
+        flightArray.add( flight6);
+        flightArray.add( flight7);
+        flightArray.add( flight8);
+        flightArray.add( flight9);
+        flightArray.add( flight10);
 
         return flightArray;
     }
 
+    public String[] createFlightId() {
+        String[] flightIds = new String[10];
+        flightIds[0] = flightId1;
+        flightIds[1] = flightId2;
+        flightIds[2] = flightId3;
+        flightIds[3] = flightId4;
+        flightIds[4] = flightId5;
+        flightIds[5] = flightId6;
+        flightIds[6] = flightId7;
+        flightIds[7] = flightId8;
+        flightIds[8] = flightId9;
+        flightIds[9] = flightId10;
+        return flightIds;
+    }
+
+    public String[] createOrigin() {
+        String[] origins = new String[11];
+        origins[0] = origin1;
+        origins[1] = origin2;
+        origins[2] = origin3;
+        origins[3] = origin4;
+        origins[4] = origin5;
+        origins[5] = origin6;
+        origins[6] = origin7;
+        origins[7] = origin8;
+        origins[8] = origin9;
+        origins[9] = origin10;
+
+        return origins;
+    }
+
+    public String[] createDestination() {
+        String[] destinations = new String[10];
+        destinations[0] = destination1;
+        destinations[1] = destination2;
+        destinations[2] = destination3;
+        destinations[3] = destination4;
+        destinations[4] = destination5;
+        destinations[5] = destination6;
+        destinations[6] = destination7;
+        destinations[7] = destination8;
+        destinations[8] = destination9;
+        destinations[9] = destination10;
+        return destinations;
+    }
+    public String []createDatas(){
+        String[] datas = new String[10];
+        datas[0]=data1;
+        datas[1]=data2;
+        datas[2]=data3;
+        datas[3]=data4;
+        datas[4]=data5;
+        datas[5]=data6;
+        datas[6]=data7;
+        datas[7]=data8;
+        datas[8]=data9;
+        datas[9]=data10;
+return datas;
+    }
+    public String[]createTimes(){
+        String[] times = new String[10];
+        times[0]=time1;
+        times[1]=time2;
+        times[2]=time3;
+        times[3]=time4;
+        times[4]=time5;
+        times[5]=time6;
+        times[6]=time7;
+        times[7]=time8;
+        times[8]=time9;
+        times[9]=time10;
+        return times;
+    }
+    public int[] createPrice(){
+        int[]prices = new int[10];
+        prices[0]=price1;
+        prices[1]=price2;
+        prices[2]=price3;
+        prices[3]=price4;
+        prices[4]=price5;
+        prices[5]=price6;
+        prices[6]=price7;
+        prices[7]=price8;
+        prices[8]=price9;
+        prices[9]=price10;
+return prices;
+    }
+    public int[] createSeats(){
+        int[]seats=new int[10];
+        seats[0]=seats1;
+        seats[1]=seats2;
+        seats[2]=seats3;
+        seats[3]=seats4;
+        seats[4]=seats5;
+        seats[5]=seats6;
+        seats[6]=seats7;
+        seats[7]=seats8;
+        seats[8]=seats9;
+        seats[9]=seats10;
+return seats;
+    }
+
     public void printSchedule() {
-        System.out.println("|\tFlight Id\t|\tOrigin\t|\tDestination\t|\t  Data  \t|\tTime\t|\tPrice\t| Seats |\n"
-                + "---------------------------------------------------------------------------------------------\n" +
-                "|\t  " + flightId1 + " \t|\t" + origin1 + "\t|\t  " + destination1 + " \t|\t" + data1 + "\t|\t" + time1 + "\t|\t" + price1 + "\t|\t" + seats1 + "\t|\n"
-                + "---------------------------------------------------------------------------------------------\n" +
-                "|\t  " + flightId2 + " \t|\t" + origin2 + "\t|\t  " + destination2 + " \t|\t" + data2 + "\t|\t" + time2 + "\t|\t" + price2 + "\t|\t" + seats2 + "\t|\n"
-                + "---------------------------------------------------------------------------------------------\n" +
-                "|\t  " + flightId3 + " \t|\t" + origin3 + "\t|\t  " + destination3 + " \t|\t" + data3 + "\t|\t" + time3 + "\t|\t" + price3 + "\t|\t" + seats3 + "\t|\n"
-                + "---------------------------------------------------------------------------------------------\n" +
-                "|\t  " + flightId4 + " \t|\t " + origin4 + " \t|\t  " + destination4 + " \t|\t" + data4 + "\t|\t" + time4 + "\t|\t" + price4 + "\t|\t" + seats4 + "\t|\n"
-                + "---------------------------------------------------------------------------------------------\n" +
-                "|\t  " + flightId5 + " \t|\t" + origin5 + "|\t  " + destination5 + " \t|\t" + data5 + "\t|\t" + time5 + "\t|\t" + price5 + "\t|\t" + seats5 + "\t|\n"
-                + "---------------------------------------------------------------------------------------------\n" +
-                "|\t  " + flightId6 + " \t|\t" + origin6 + "\t|\t  " + destination6 + " \t|\t" + data6 + "\t|\t" + time6 + "\t|\t" + price6 + "\t|\t" + seats6 + "\t|\n"
-                + "---------------------------------------------------------------------------------------------\n" +
-                "|\t  " + flightId7 + " \t|\t" + origin7 + "\t|\t  " + destination7 + "  \t|\t" + data7 + "\t|\t" + time7 + "\t|\t" + price7 + "\t|\t" + seats7 + "\t|\n"
-                + "---------------------------------------------------------------------------------------------\n" +
-                "|\t  " + flightId8 + " \t|\t" + origin8 + "\t|\t  " + destination8 + " \t|\t" + data8 + "\t|\t" + time8 + "\t|\t" + price8 + "\t|\t" + seats8 + "\t|\n"
-                + "---------------------------------------------------------------------------------------------\n" +
-                "|\t  " + flightId9 + " \t|\t" + origin9 + "\t|\t  " + destination9 + " \t|\t" + data9 + "\t|\t" + time9 + "\t|\t" + price9 + "\t|\t" + seats9 + "\t|\n"
-                + "---------------------------------------------------------------------------------------------\n" +
-                "|\t  " + flightId10 + " \t|\t" + origin10 + "\t|\t  " + destination10 + " \t|\t" + data10 + "\t|\t" + time10 + "\t|\t" + price10 + "\t|\t" + seats10 + "\t|\n"
-                + "---------------------------------------------------------------------------------------------\n");
+        int count = flightArrayList().size();
+
+        System.out.println("| Flight Id |\tOrigin\t|Destination|\t\tData\t|\tTime\t|\tPrice\t| Seats |\n" +
+                "--------------------------------------------------------------------------------------");
+
+        for (int i = 0; i < count; i++) {
+            System.out.println("|\t" + flightArrayList().get(i).getFlightId() + "\t|\t" + flightArrayList().get(i).getOrigin() + "\t|\t" + flightArrayList().get(i).getDestination() + "\t|\t" + flightArrayList().get(i).getData() + "\t|\t" + flightArrayList().get(i).getTime() + "\t|\t" + flightArrayList().get(i).getPrice() + "\t|\t" + flightArrayList().get(i).getSeats() + "\t|");
+        }
+
     }
 }
 
