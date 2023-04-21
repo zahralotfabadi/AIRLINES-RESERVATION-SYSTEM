@@ -4,7 +4,9 @@ public class Passengers {
     Scanner scanner = new Scanner(System.in);
     Sign sign = new Sign();
     Schedule schedule = new Schedule();
-    Passenger passenger = new Passenger(sign.user, sign.password);
+    Passenger passenger = new Passenger(sign.user, sign.password, sign.chargeSign);
+    Ticket ticket=new Ticket();
+    int counter = schedule.flightArrayList().size();
 
     public void ChangePassword() {
         System.out.println("enter passWordNew:");
@@ -16,7 +18,7 @@ public class Passengers {
         System.out.println("enter a word to search for a flight ticket: ");
         String wordSearch1 = scanner.nextLine();
         String wordSearch2;
-        int counter = schedule.flightArrayList().size();
+
 
         switch (wordSearch1) {
             case "flightId":
@@ -69,7 +71,7 @@ public class Passengers {
                 System.out.println("enter element of price:");
                 wordSearch2 = scanner.nextLine();
                 for (int i = 0; i < counter; i++) {
-                    if (Integer.parseInt(wordSearch2)== schedule.createPrice()[i]) {
+                    if (Integer.parseInt(wordSearch2) == schedule.createPrice()[i]) {
                         System.out.println("|\t" + schedule.createFlightId()[i] + "\t|\t" + schedule.createOrigin()[i] + "\t|\t" + schedule.createDestination()[i] + "\t|\t" + schedule.createDatas()[i] + "\t|\t" + schedule.createTimes()[i] + "\t|\t" + schedule.createPrice()[i] + "\t|\t" + schedule.createSeats()[i] + "\t|");
                     }
                 }
@@ -78,7 +80,7 @@ public class Passengers {
                 System.out.println("enter element of seats:");
                 wordSearch2 = scanner.nextLine();
                 for (int i = 0; i < counter; i++) {
-                    if (Integer.parseInt(wordSearch2)==schedule.createSeats()[i]) {
+                    if (Integer.parseInt(wordSearch2) == schedule.createSeats()[i]) {
                         System.out.println("|\t" + schedule.createFlightId()[i] + "\t|\t" + schedule.createOrigin()[i] + "\t|\t" + schedule.createDestination()[i] + "\t|\t" + schedule.createDatas()[i] + "\t|\t" + schedule.createTimes()[i] + "\t|\t" + schedule.createPrice()[i] + "\t|\t" + schedule.createSeats()[i] + "\t|");
                     }
                 }
@@ -95,60 +97,44 @@ public class Passengers {
     public boolean BookingTicket() {
         System.out.println("enter Flight Id to book the ticket:");
         String enterFlightId = scanner.nextLine();
-        if (enterFlightId.equals(schedule.flightId1)) {
-            if (passenger.charge >= schedule.price1) {
-                schedule.seats1 = schedule.seats1 - 1;
-                passenger.charge = passenger.charge - schedule.price1;
-            } else {
-                System.out.println("not enough charge!");
-                return false;
-            }
-        } else if (enterFlightId.equals(schedule.flightId2)) {
-            if (passenger.charge >= schedule.price2) {
-                schedule.seats2 = schedule.seats2 - 1;
-                passenger.charge = passenger.charge - schedule.price2;
-            } else {
-                System.out.println("not enough charge!=>return to the previous menu.");
-                return false;
-            }
-        } else if (enterFlightId.equals(schedule.flightId3)) {
-            if (passenger.charge >= schedule.price3) {
-                schedule.seats3 = schedule.seats3 - 1;
-                passenger.charge = passenger.charge - schedule.price3;
-            } else {
-                System.out.println("not enough charge!");
-                return false;
+        for (int i = 0; i < counter; i++) {
+            if (enterFlightId.equals(schedule.createFlightId()[i])) {
+                System.out.println("mew" + passenger.getCharge());
+                if (passenger.getCharge() > (schedule.createPrice()[i])) {
+                    System.out.println("mew");
+                    schedule.createSeats()[i] = schedule.createSeats()[i] - 1;
+                    System.out.println(passenger.getCharge());
+                    passenger.setCharge(passenger.getCharge() - schedule.createPrice()[i]);
+                    String ticketId = passenger.getPsrName() + passenger.getPsrPassword() + schedule.createFlightId()[i];
+                    ticket.setTicketId(ticketId);
+                    System.out.println("ticketId:" + ticketId);
+                } else {
+                    System.out.println("not enough charge!=>return to the previous menu.");
+                    return false;
+                }
             }
         }
-//       else if(enterFlightId.equals(seats)){
-//       }
         return true;
     }
 
     public void TicketCancellation() {
-        System.out.println("enter Flight Id to cancel the ticket:");
+        System.out.println("enter ticket Id to cancel the ticket:");
         String enterFlightId = scanner.nextLine();
-        if (enterFlightId.equals(schedule.flightId1)) {
-            schedule.seats1 = schedule.seats1 + 1;
-            passenger.charge = passenger.charge + schedule.price1;
-        } else if (enterFlightId.equals(schedule.flightId2)) {
-            schedule.seats2 = schedule.seats2 + 1;
-            passenger.charge = passenger.charge + schedule.price2;
-        } else if (enterFlightId.equals(schedule.flightId3)) {
-            schedule.seats3 = schedule.seats3 + 1;
-            passenger.charge = passenger.charge + schedule.price3;
+        for (int i = 0; i < counter; i++) {
+            if (enterFlightId.equals(ticket.getTicketId())) {
+                schedule.createSeats()[i] = schedule.createPrice()[i] + 1;
+                passenger.setCharge(passenger.getCharge() + schedule.createPrice()[i]);
+            }
+        }
+    }
+
+        public void BookedTickets () {
         }
 
-    }
+        public void AddCharge () {
+            System.out.println("enter the charge increment amount:");
+            int addCharge = scanner.nextInt();
+            passenger.setCharge(passenger.getCharge() + addCharge);
+        }
 
-    public void BookedTickets() {
-
-    }
-
-    public int AddCharge() {
-        System.out.println("enter the charge increment amount:");
-        int addCharge = scanner.nextInt();
-        passenger.charge = passenger.charge + addCharge;
-        return passenger.charge;
-    }
 }

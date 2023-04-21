@@ -60,48 +60,6 @@ public class Schedule {
     Flight flight8 = new Flight(flightId8, origin8, destination8, data8, time8, price8, seats8);
     Flight flight9 = new Flight(flightId9, origin9, destination9, data9, time9, price9, seats9);
     Flight flight10 = new Flight(flightId10, origin10, destination10, data10, time10, price10, seats10);
-    Flight[] arrayFlights;
-
-    public Flight getFlight1() {
-        return flight1;
-    }
-
-    public Flight getFlight2() {
-        return flight2;
-    }
-
-    public Flight getFlight3() {
-        return flight3;
-    }
-
-    public Flight getFlight4() {
-        return flight4;
-    }
-
-    public Flight getFlight5() {
-        return flight5;
-    }
-
-    public Flight getFlight6() {
-        return flight6;
-    }
-
-    public Flight getFlight7() {
-        return flight7;
-    }
-
-    public Flight getFlight8() {
-        return flight8;
-    }
-
-    public Flight getFlight9() {
-        return flight9;
-    }
-
-    public Flight getFlight10() {
-        return flight10;
-    }
-
 
     public ArrayList<Flight> flightArrayList() {
         flightArray.add( flight1);

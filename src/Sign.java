@@ -12,7 +12,9 @@ public class Sign {
     ArrayList<String> listUser = new ArrayList<>();
     ArrayList<String> listPassword = new ArrayList<>();
     public String user;
+
     public String password;
+    public int chargeSign=0;
 
     public void signUp() {
         System.out.println("enter user:");
@@ -34,7 +36,6 @@ public class Sign {
         System.out.println("enter password:");
         password = input.next();
         if (Objects.equals(user, AdminName) && Objects.equals(password, AdminPassword)) {
-//            int counter2 = 1;
             while (true){
                 System.out.println(ANSI_PURPLE + "\n:::::::::::::::::::::::::::::::::::::::::::\n" +
                         "            ADMIN MENU OPTIONS             \n" +
@@ -59,7 +60,7 @@ public class Sign {
             }
         }
         }
-
+        Passenger passenger1=new Passenger(user,password,chargeSign);
         int index1=listUser.indexOf(user);
         int index2=listPassword.indexOf(password);
         if(index1>=0 && index2>=0) {
@@ -67,8 +68,8 @@ public class Sign {
             while (counter == 1) {
                 System.out.println(ANSI_YELLOW + "\n:::::::::::::::::::::::::::::::::::::::::::\n" +
                         "            PASSENGER MENU OPTIONS             \n" +
-                        ":::::::::::::::::::::::::::::::::::::::::::::::\n" +
-                        "...............................................\n\n" +
+                        "::::::::::::::::::::::::::::::::::::::::::::\n" +
+                        "............................................\n\n" +
                         "<1> Change password\n<2> Search flight tickets\n<3> Booking ticket\n<4> Ticket cancellation\n<5> Booked tickets\n<6> Add charge\n<0> Sign out" + ANSI_RESET);
                 int num2;
                 num2 = input.nextInt();
